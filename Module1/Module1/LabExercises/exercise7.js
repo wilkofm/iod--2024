@@ -1,11 +1,11 @@
 // this function returns the sum of a + b
-function sum(a, b) {
+function add(a, b) {
   return a + b;
 }
 
-// if (sum(5, 1) != 5) {
-//   throw error;
-// }
+if (add(5, 1) != 5) {
+  throw error("Error Message");
+}
 
 // if (sum(1200, 2) != 1203) {
 //   throw error;
