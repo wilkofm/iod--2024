@@ -1,0 +1,105 @@
+body {
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: purple;
+}
+
+.background-1 {
+  background: #68b0ab;
+}
+
+.background-2 {
+  background: #8fc0a9;
+}
+
+.background-3 {
+  background: #c8d5b9;
+}
+
+.background-4 {
+  background: #faf3dd;
+}
+
+.m-20 {
+  margin: 20px;
+}
+
+.h-80 {
+  height: 80px;
+}
+
+.h-400 {
+  height: 400px;
+}
+
+.w-80 {
+  width: 80px;
+}
+
+/* Add your answers here, do not modify the above CSS */
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  flex-direction: row-reverse;
+  flex-direction: row;
+}
+
+.flex-item-1 {
+  flex: 1 1 50%;
+}
+
+.flex-item-2 {
+  flex: 2 1 30%;
+}
+
+.flex-item-3 {
+  flex: 3 3 10%;
+}
+
+.flex-item-4 {
+  flex: 4 1 10%;
+}
+
+.flex-center {
+  justify-content: baseline;
+  justify-content: center;
+  align-items: flex-end;
+  align-items: center;
+}
+
+.flex-space-between {
+  flex-direction: row;
+  justify-content: space-between;
+  justify-content: space-around;
+  justify-content: space-evenly;
+  justify-content: space-between;
+}
+
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
+}
+
+.flex-basis-item-50 {
+  flex-basis: 50%;
+  flex-basis: 25%;
+}
+
+.flex-menu {
+  list-style-type: none;
+  height: 60px;
+  font-weight: bold;
+  justify-items: center;
+  align-items: center;
+  gap: 2px;
+}
+
+.flex-menu .background-3 {
+  height: 60px;
+}

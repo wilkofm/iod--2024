@@ -1,0 +1,38 @@
+.profile-image {
+  position: absolute;
+  left: auto;
+  padding-top: 28px;
+  padding-left: 12px;
+}
+
+.profile-image img {
+  border-radius: 5px;
+}
+
+.body {
+  position: absolute;
+  left: 240px;
+  padding-right: 50px;
+}
+
+.text-1 {
+  font-family: "Fira Code", monospace;
+  font-optical-sizing: auto;
+  font-size: small;
+  list-style-type: none;
+}
+
+.heading-text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.footer {
+  position: absolute;
+  padding-left: 14px;
+  padding-top: 270px;
+  font-family: "Fira Code", monospace;
+  font-optical-sizing: auto;
+  font-size: small;
+}

@@ -1,0 +1,123 @@
+/* I. Selectors */
+/* Put styles for questions 1.1, 1.2, 1.3 and 1.4 here */
+
+article {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+.style-me1 {
+  color: red;
+}
+
+#style-me2 {
+  color: blue;
+}
+
+.style-me1#style-me2 {
+  color: purple;
+}
+
+/* Put styles for questions 2.1 and 2.2 here */
+
+.my-descendants-are-styled p {
+  background-color: red;
+}
+
+.my-children-are-styled > p {
+  background-color: lightgreen;
+}
+
+/* II. Box model and common properties */
+/* Put styles for questions 1-8 here */
+
+.box {
+  margin: 4px, 4px, 4px, 4px;
+  padding: 10px;
+  padding: 50px;
+  background-color: #7fc8f8;
+  width: 50vw;
+  height: 15vh !important;
+  border-style: solid;
+  border-width: 10px;
+  border-color: #5aa9e6;
+  box-sizing: content-box;
+  box-sizing: border-box;
+  overflow: auto;
+  overflow: hidden;
+  overflow: scroll;
+  outline-style: solid;
+  outline-width: 10px;
+  border-radius: 2em;
+  border-radius: 50%;
+  border-radius: 100px;
+  background-image: url("/Module2/LabExercises/lab2/assets/images/img1.png");
+  background-size: cover;
+  background-size: contain;
+  background-size: initial;
+  background-repeat: no-repeat;
+  background-repeat: space;
+  background-position: center;
+  background-position: left;
+  background-position: top;
+}
+
+/* III. Positioning */
+/* Put styles for questions 1-3 here */
+
+.position-absolute {
+  position: absolute;
+  bottom: 0px;
+  background-color: red;
+}
+
+.position-relative {
+  position: relative;
+  background-color: pink;
+  left: 200px;
+  right: 200px;
+}
+
+.position-sticky {
+  position: sticky;
+  background-color: #ffe45e;
+  top: 0px;
+}
+
+/* IV. Styling text */
+/* Put styles for questions 1-10 here */
+
+.text-style {
+  color: #ff6392;
+  font-size: large;
+  font-size: small;
+  font-size: 20px;
+  line-height: 0%;
+  line-height: normal;
+  line-height: 1.6;
+  line-height: 0;
+  line-height: 1;
+  font-weight: bold;
+  font-weight: 250;
+  font-family: "Jersey 10", sans-serif;
+  text-align: center;
+  text-align: right;
+  text-align: justify;
+  letter-spacing: 50px;
+  letter-spacing: 2px;
+  word-spacing: 20px;
+  word-spacing: 1px;
+  text-transform: uppercase;
+  text-transform: lowercase;
+  text-decoration: line-through;
+  text-decoration: wavy;
+  text-decoration: dotted;
+  text-decoration: overline;
+}
+
+/* V. Styling links */
+/* Put styles for questions 1-3 here */
+
+/* VI. calc() */
+/* Put styles for questions 1-3 here */
