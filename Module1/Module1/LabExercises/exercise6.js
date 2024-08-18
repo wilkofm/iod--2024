@@ -34,8 +34,12 @@ const books = {
   ],
 };
 
+books.book[0].description = "A thriller where a woman finds an intruiging note";
+
 console.log(books.book[0].title);
 console.log(books.book[0].description);
 console.log(books.book[0].author);
 console.log(books.book[0].numberOfPages);
+console.log(books.book[0]);
+console.log(books.book[0].description);
 console.log(books.book[4].title);
