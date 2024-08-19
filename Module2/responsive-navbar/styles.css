@@ -1,0 +1,30 @@
+.navbar {
+  background-color: grey;
+}
+
+.navbar-menu {
+  display: none;
+  list-style-type: none;
+}
+
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar-menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  .navbar-toggle {
+    display: none;
+  }
+}
