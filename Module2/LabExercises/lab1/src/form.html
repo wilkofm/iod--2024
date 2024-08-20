@@ -1,21 +1,54 @@
 <!DOCTYPE html>
 <html>
+  <head> </head>
 
-<head>
-</head>
+  <body>
+    <header>
+      <nav>
+        <!-- works like <a href="/index.html">Home</a> -->
+        <a href="index.html">Home</a>
+        <a href="form.html">Form</a>
+      </nav>
+    </header>
+    <form method="POST" action="http://127.0.0.1:5500/form.html"></form>
+    <div>
+      <label for="fname">First name:</label>
+      <input type="text" />
+    </div>
+    <div>
+      <label for="lname">Last name:</label>
+      <input type="text" />
+    </div>
+    <div>
+      <label for="HTML">HTML</label>
+      <input type="radio" />
+      <label for="CSS">CSS</label>
+      <input type="radio" />
+      <label for="JavaScript">JavaScript</label>
+      <input type="radio" />
+    </div>
+    <div>
+      <label for="Hyundai">Hyundai</label>
+      <input type="checkbox" />
+      <label for="Jeep">Jeep</label>
+      <input type="checkbox" />
+      <label for="Porsche">Porsche</label>
+      <input type="checkbox" />
+    </div>
+    <div>
+      <form action="">
+        <label for="cars">Choose a car:</label>
+        <select name="cars" id="cars">
+          <option value="Hyundai">Hyundai</option>
+          <option value="Jeep">Jeep</option>
+          <option value="Porsche">Porsche</option>
+        </select>
+        <br />
+        <button type="submit">Submit form</button>
+      </form>
+    </div>
+    <main></main>
 
-<body>
-  <header>
-    <nav>
-      <!-- works like <a href="/index.html">Home</a> -->
-      <a href="/">Home</a>
-    </nav>
-  </header>
-
-  <main>
-  </main>
-
-  <footer>Copyright &copy; 2024</footer>
-</body>
-
+    <footer>Copyright &copy; 2024</footer>
+  </body>
 </html>

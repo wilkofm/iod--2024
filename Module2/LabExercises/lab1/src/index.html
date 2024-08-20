@@ -6,9 +6,26 @@
   <meta name="keywords" content="HTML" />
   <meta name="author" content="Max Wilkinson" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <head> </head>
+  <head>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
 
   <body>
+    <header>
+      <nav>
+        <!-- works like <a href="/index.html">Home</a> -->
+        <a href="index.html">Home</a>
+        <a href="form.html">Form</a>
+      </nav>
+    </header>
+
+    <main></main>
     <h1>My HTML Learning Journey</h1>
     <article>
       <h2>Learning Elements</h2>
@@ -45,12 +62,55 @@ line breaks
         </ul>
       </li>
     </article>
-    <header>
-      <nav>
-        <!-- works like <a href="/index.html">Home</a> -->
-        <a href="/">Home</a>
-      </nav>
-    </header>
+    <article>
+      <h2>Tables</h2>
+      <table>
+        <tr>
+          <th>Company</th>
+          <th colspan="2">Contact</th>
+        </tr>
+        <tr>
+          <td>Alfreds Futterkiste</td>
+          <td>Maria Anders</td>
+          <td>Extra</td>
+        </tr>
+        <tr>
+          <td>Centro comercial Moctezuma</td>
+          <td rowspan="2">Francisco Chang</td>
+          <td>Third Cell</td>
+        </tr>
+        <tr>
+          <td>Third Row 1</td>
+          <td>Third Row 2</td>
+        </tr>
+      </table>
+    </article>
+    <article>
+      <h2>Image & Video</h2>
+      <img
+        src="https://picsum.photos/400/400"
+        alt="Black and White photo of suspension bridge"
+        width="400"
+        height="400"
+      />
+      <img
+        src="assets/html_lab_image.jpg"
+        alt="Beautiful sunrise above clouds on a mountaintop"
+        width="400"
+        height="400"
+      />
+      <br />
+      <video autoplay width="250">
+        <source src="assets/flower.webm" type="video/webm" />
+        Sorry, your browser doesn't support embedded videos.
+      </video>
+      <figure>
+        <audio autoplay src="assets/t-rex-roar.mp3">
+          Your browser does not support the <code>audio</code> element.
+        </audio>
+        <figcaption>Fig.1 - t-rex-roar.</figcaption>
+      </figure>
+    </article>
 
     <main></main>
 
