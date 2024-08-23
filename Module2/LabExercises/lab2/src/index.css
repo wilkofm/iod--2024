@@ -150,8 +150,12 @@ a:visited {
 .fixed-width-col {
   width: 350px;
   display: inline-block;
+  background-color: #ff6392;
 }
 
 .fluid-col {
   display: inline-block;
+  background-color: #7fc8f8;
+  width: calc(100% - 350px);
+  /* worth noting .fluid-col only aligning with .fixed-width-col with calc(100% - 400px), though leaving at 350px as per instructions */
 }
