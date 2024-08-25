@@ -92,14 +92,36 @@ a {
 }
 
 .flex-menu {
+  display: flex;
   list-style-type: none;
   height: 60px;
   font-weight: bold;
-  justify-items: center;
-  align-items: center;
   gap: 2px;
+  width: 45%;
+  padding-left: 2px;
+  padding-right: 2px;
+  justify-content: flex-end;
+  justify-content: center;
+}
+
+.flex-menu li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-right: 10px;
+  padding-left: 10px;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.flex-menu li a {
+  color: black;
 }
 
 .flex-menu .background-3 {
   height: 60px;
+}
+
+.fourth-item {
+  order: 5;
 }
