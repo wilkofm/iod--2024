@@ -28,11 +28,53 @@
   font-style: normal;
 }
 
-.footer {
+footer {
   position: absolute;
   padding-left: 14px;
   padding-top: 270px;
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
   font-family: "Fira Code", monospace;
   font-optical-sizing: auto;
   font-size: small;
+}
+
+footer a {
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (max-width: 800px) {
+  .profile-image {
+    padding-top: 14px;
+  }
+  .profile-image img {
+    width: 100px;
+    height: 125px;
+  }
+  .body {
+    position: absolute;
+    left: auto;
+    padding-top: 4px;
+    padding-left: 120px;
+  }
+  .text-1 {
+    font-size: x-small;
+  }
+  .heading-text {
+    font-size: small;
+  }
+  footer {
+    position: absolute;
+    padding-left: 12px;
+    padding-top: 128px;
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+  }
+  footer img {
+    width: 15px;
+    height: 15px;
+  }
 }
