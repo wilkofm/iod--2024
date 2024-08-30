@@ -87,7 +87,7 @@ function getGreeting(name) {
   return "Hello " + name + "!";
 }
 
-console.log(getGreeting("Max"));
+// console.log(getGreeting("Max"));
 
 //function expression syntax
 
@@ -95,7 +95,7 @@ const getGreetingExpression = function (name) {
   return "Hello " + name + "!";
 };
 
-console.log(getGreetingExpression("Max"));
+// console.log(getGreetingExpression("Max"));
 
 //arrow function syntax
 
@@ -103,7 +103,7 @@ const getGreetingArrow = (name) => {
   return "Hello " + name + "!";
 };
 
-console.log(getGreetingArrow("Max"));
+// console.log(getGreetingArrow("Max"));
 
 // Complete the inigo object by adding a lastName property and including it in the
 // greeting.
@@ -144,21 +144,30 @@ inigo.greeting(rugen);
 
 const basketballGame = {
   score: 0,
+  basket() {
+    this.score += 2;
+    return this;
+  },
   freeThrow() {
     this.score++;
+    return this;
+  },
+  freeThrow() {
+    this.score++;
+    return this;
   },
   basket() {
     this.score += 2;
+    return this;
   },
   threePointer() {
     this.score += 3;
+    return this;
   },
   halfTime() {
     console.log("Halftime score is " + this.score);
   },
 };
-
-function basketballGame(score) {}
 
 //modify each of the above object methods to enable function chaining as below:
 basketballGame
