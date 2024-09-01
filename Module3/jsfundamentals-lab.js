@@ -1,3 +1,5 @@
+// 1
+
 "" + 1 + 0;
 // 1
 "" - 1 + 0;
@@ -31,10 +33,9 @@ undefined == null;
 undefined === null;
 // false
 " \t \n" - 2;
-// unsure
+// NaN
 
-// Which of the below are not giving the right answer? Why are they not correct? How can we
-// fix them?
+// 2
 
 let three = "3";
 3;
@@ -44,19 +45,21 @@ let thirty = "30";
 30;
 //thirty is not judging by the below
 
-//what is the value of the following expressions?
 let addition = three + four;
-34;
+// 34;
 let multiplication = three * four;
-12;
+// 12;
 let division = three / four;
-0.75;
+// 0.75;
 let subtraction = three - four;
--1;
+// -1;
 let lessThan1 = three < four;
-true;
+// true;
 let lessThan2 = thirty < four;
-true; // why
+// false;
+// this gives a false result as "30" is not less than "4"
+
+// 3
 
 // if (0) console.log("#1 zero is true"); //wont print
 // if ("0") console.log("#2 zero is true"); //print
@@ -64,8 +67,7 @@ true; // why
 // if (-1) console.log("negative is true"); //print
 // if (1) console.log("positive is true"); //print
 
-// Rewrite this if using the ternary/conditional operator '?'. Test it with different values for a
-// and b. What does the ‘+=’ do?
+// 4
 
 // let a = 2,
 //   b = 3;
@@ -80,8 +82,7 @@ true; // why
 //   b = 3;
 // let result = a + b < 10 ? "less than 10" : "greater than 10";
 
-// Rewrite the following function using: a) function expression syntax, and b) arrow function
-// syntax. Test each version to make sure they work the same.
+// 5
 
 function getGreeting(name) {
   return "Hello " + name + "!";
@@ -105,8 +106,7 @@ const getGreetingArrow = (name) => {
 
 // console.log(getGreetingArrow("Max"));
 
-// Complete the inigo object by adding a lastName property and including it in the
-// greeting.
+// 6
 
 const westley = {
   name: "Westley",
@@ -139,8 +139,7 @@ const inigo = {
 inigo.greeting(westley);
 inigo.greeting(rugen);
 
-// The following object represents a basketball game and keeps track of the score as the
-// game progresses.
+// 7
 
 const basketballGame = {
   score: 0,
@@ -152,14 +151,6 @@ const basketballGame = {
     this.score++;
     return this;
   },
-  freeThrow() {
-    this.score++;
-    return this;
-  },
-  basket() {
-    this.score += 2;
-    return this;
-  },
   threePointer() {
     this.score += 3;
     return this;
@@ -167,9 +158,41 @@ const basketballGame = {
   halfTime() {
     console.log("Halftime score is " + this.score);
   },
+  fullTime() {
+    console.log(
+      "Fulltime score is " +
+        this.score +
+        " with a foul count of " +
+        this.foulCount
+    );
+  },
 };
 
-//modify each of the above object methods to enable function chaining as below:
+const fouls = {
+  foulCount: 0,
+  personalFoul() {
+    this.foulCount++;
+    return this;
+  },
+  technicalFoul() {
+    this.foulCount++;
+    return this;
+  },
+  flagrantFoul() {
+    this.foulCount++;
+    return this;
+  },
+  looseFoul() {
+    this.foulCount++;
+    return this;
+  },
+  totalFouls() {
+    console.log("Total number of fouls are " + this.foulCount);
+  },
+};
+
+const game = Object.assign({}, basketballGame, fouls);
+
 basketballGame
   .basket()
   .freeThrow()
@@ -177,3 +200,110 @@ basketballGame
   .basket()
   .threePointer()
   .halfTime();
+
+basketballGame.fullTime();
+
+fouls.personalFoul().looseFoul().totalFouls();
+
+game.basket().basket().freeThrow().threePointer().halfTime();
+game.flagrantFoul().personalFoul().technicalFoul();
+game.basket().freeThrow().threePointer().threePointer().fullTime();
+
+// 8
+
+const sydney = {
+  name: "Sydney",
+  population: 5_121_000,
+  state: "NSW",
+  founded: "26 January 1788",
+  timezone: "Australia/Sydney",
+};
+
+const melbourne = {
+  traditionalName: "Naarm",
+  sight: "NGV",
+  restaurant: "Yakimono",
+  hotel: "QT Melbourne",
+};
+
+// need to print all properties and values in for in loop
+
+for (let properties in sydney) {
+  console.log("Property: " + properties);
+  console.log("Value: " + sydney[properties]);
+}
+
+for (let properties in melbourne) {
+  console.log("Property " + properties);
+  console.log("Value: " + melbourne[properties]);
+}
+
+// 9
+
+let teamSports = ["Hockey", "Cricket", "Volleyball"];
+let dog1 = "Bingo";
+let cat1 = { name: "Fluffy", breed: "Siberian" };
+
+let moreSports = [...teamSports];
+moreSports.push("Basketball");
+moreSports.unshift("Running");
+
+let dog2 = dog1;
+dog2 = "Felix";
+
+let cat2 = { ...cat1 };
+cat2.name = "Charlie";
+
+// console.log(moreSports);
+// console.log(dog2);
+// console.log(cat2);
+
+console.log(teamSports);
+console.log(dog1);
+console.log(cat1);
+//dog1 name has not been updated but all the others have been, as dog1 is just a string, not an array or object, so the original is not affected.
+
+// 10
+
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.human = true;
+}
+Person.prototype.canDrive = function () {
+  return this.age >= 16;
+};
+
+class PersonClass {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    this.human = true;
+  }
+  canDrive() {
+    return this.age >= 16;
+  }
+}
+
+const user1 = new Person("Jennifer", 29);
+const user2 = new Person("Henry", 32);
+const user3 = new PersonClass("Ellen", 27);
+
+console.log(
+  "Name: " + user1.name,
+  "Age: " + user1.age,
+  "Human: " + user1.human,
+  "Can Drive: " + user2.canDrive()
+);
+console.log(
+  "Name: " + user2.name,
+  "Age: " + user2.age,
+  "Human: " + user2.human,
+  "Can Drive: " + user2.canDrive()
+);
+console.log(
+  "Name: " + user3.name,
+  "Age: " + user3.age,
+  "Human: " + user3.human,
+  "Can Drive: " + user3.canDrive()
+);
