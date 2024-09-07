@@ -69,25 +69,6 @@ function findMatchingAnimals(beginsWith) {
 //   return removeHyphen;
 // }
 
-//Test Answer
-// function camelCase(cssProp) {
-//   const addUppercase = cssProp
-//     .replace("-" + 1)
-//     .charAt(4)
-//     .toUpperCase();
-//   return addUppercase;
-// }
-
-//Practice Answer 1
-// function camelCase(cssProp) {
-//   const removeHyphen = cssProp
-//     .split("-")
-//     .map(camelCase (word) {
-//       return word.charAt(0).toUpperCase() + word.slice(1);
-//     })
-//     .join("");
-// }
-
 function camelCase(cssProp) {
   let words = cssProp.split("-"); //splits the two words at the dash
   let camelCaseStr = words[0].toLowerCase(); //first word to lowercase
@@ -100,12 +81,46 @@ function camelCase(cssProp) {
   return camelCaseStr;
 }
 
-// console.log(camelCase("margin-left"));
-// console.log(camelCase("background-image"));
-// console.log(camelCase("display"));
+console.log(camelCaseTwo("margin-left"));
+console.log(camelCaseTwo("background-image"));
+console.log(camelCaseTwo("display"));
 
-// b) Create variants of the camelCase function that use different types of for loops, and
-// c) with and without the conditional operator.
+function camelCaseTwo(cssProp) {
+  let words = cssProp.split("-");
+  let camelCaseStr = words[0].toLowerCase();
+  let isFirstWord = true;
+  for (const word of words.slice(1)) {
+    camelCaseStr += isFirstWord
+      ? word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+      : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    isFirstWord = false;
+  }
+
+  return camelCaseStr;
+}
+
+console.log(camelCaseTwo("margin-left"));
+console.log(camelCaseTwo("background-image"));
+console.log(camelCaseTwo("display"));
+
+function camelCaseThree(cssProp) {
+  let words = cssProp.split("-");
+  let camelCaseStr = words[0].toLowerCase();
+
+  for (const index in words) {
+    if (index > 0) {
+      camelCaseStr +=
+        words[index].charAt(0).toUpperCase() +
+        words[index].slice(1).toLowerCase();
+    }
+  }
+
+  return camelCaseStr;
+}
+
+console.log(camelCaseThree("margin-left"));
+console.log(camelCaseThree("background-image"));
+console.log(camelCaseThree("display"));
 
 //5.
 
@@ -139,4 +154,4 @@ function currencyOperation(float1, float2, operation) {
   }
 }
 
-console.log(currencyOperation(0.1, 0.2, "+"));
+// console.log(currencyOperation(0.1, 0.2, "+"));
