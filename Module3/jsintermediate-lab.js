@@ -313,6 +313,34 @@ let phoneBooksCombined = new Map([...phoneBookABC, ...phoneBookDEF]);
 
 //f
 
-for (let names of phoneBooksCombined.keys()) {
-  console.log(names);
+// for (let names of phoneBooksCombined.keys()) {
+//   console.log(names);
+// }
+
+//9.
+
+let salaries = {
+  Timothy: 35000,
+  David: 25000,
+  Mary: 55000,
+  Christina: 75000,
+  James: 43000,
+};
+
+function sumSalaries() {
+  let sum = 0;
+  for (let name in salaries) {
+    sum += salaries[name];
+  }
+  return sum;
 }
+
+//notes for myself: when using for...in loop you can only access the values through the keys, which is why I'm referencing the names
+
+console.log(sumSalaries());
+
+// function topEarner(salaries) {
+
+// }
+
+// console.log(topEarner());
