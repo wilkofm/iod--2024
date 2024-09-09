@@ -327,20 +327,44 @@ let salaries = {
   James: 43000,
 };
 
-function sumSalaries() {
-  let sum = 0;
-  for (let name in salaries) {
-    sum += salaries[name];
-  }
-  return sum;
-}
+// function sumSalaries() {
+//   let sum = 0;
+//   for (let name in salaries) {
+//     sum += salaries[name];
+//   }
+//   return sum;
+//}
 
 //notes for myself: when using for...in loop you can only access the values through the keys, which is why I'm referencing the names
 
-console.log(sumSalaries());
+// console.log(sumSalaries());
 
 // function topEarner(salaries) {
+//   let salary = 0;
+//   let topName = "";
 
+//   for (let name in salaries) {
+//     if (salaries[name] > salary) {
+//       salary = salaries[name];
+//       topName = name;
+//     }
+//   }
+//   return topName;
 // }
 
-// console.log(topEarner());
+// console.log(topEarner(salaries));
+
+//10.
+
+const today = new Date();
+console.log("Current time is " + today.toLocaleTimeString());
+console.log(today.getHours() + " hours have passed so far today");
+
+const hours = today.getHours();
+const minutes = today.getMinutes();
+const minutesOfDay = hours * 60 + minutes;
+console.log(minutesOfDay + " minutes have passed so far today");
+
+const seconds = today.getSeconds();
+const secondsOfDay = hours * 3600 + minutes * 60 + seconds;
+console.log(secondsOfDay + " seconds have passed so far today");
