@@ -78,9 +78,11 @@ let lessThan2 = thirty < four;
 //   result += "greater than 10";
 // }
 
-// let a = 12,
-//   b = 3;
-// let result = a + b < 10 ? "less than 10" : "greater than 10";
+let a = 12,
+  b = 3;
+let result = a + b < 10 ? "less than 10" : "greater than 10";
+
+//the += operator concatenates "less than 10" or "greater than ten" to the result and updates the result at the same time
 
 // 5
 
