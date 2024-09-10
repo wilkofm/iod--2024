@@ -356,15 +356,39 @@ let salaries = {
 
 //10.
 
-const today = new Date();
-console.log("Current time is " + today.toLocaleTimeString());
-console.log(today.getHours() + " hours have passed so far today");
+// const today = new Date();
+// console.log("Current time is " + today.toLocaleTimeString());
+// console.log(today.getHours() + " hours have passed so far today");
 
-const hours = today.getHours();
-const minutes = today.getMinutes();
-const minutesOfDay = hours * 60 + minutes;
-console.log(minutesOfDay + " minutes have passed so far today");
+// const hours = today.getHours();
+// const minutes = today.getMinutes();
+// const minutesOfDay = hours * 60 + minutes;
+// console.log(minutesOfDay + " minutes have passed so far today");
 
-const seconds = today.getSeconds();
-const secondsOfDay = hours * 3600 + minutes * 60 + seconds;
-console.log(secondsOfDay + " seconds have passed so far today");
+// const seconds = today.getSeconds();
+// const secondsOfDay = hours * 3600 + minutes * 60 + seconds;
+// console.log(secondsOfDay + " seconds have passed so far today");
+
+// const birthDate = new Date(1990, 4, 1);
+// console.log("my birthday is " + birthDate.toLocaleDateString("en-AU"));
+// let ageInYears = today.getFullYear() - birthDate.getFullYear();
+// let ageInMonths =
+//   (today.getFullYear() - birthDate.getFullYear()) * 12 +
+//   today.getMonth() -
+//   birthDate.getMonth();
+// let timeDifferenceInMilliseconds = today - birthDate;
+// let MillisecondsInDay = 1000 * 60 * 60 * 24;
+// let ageInDays = Math.floor(timeDifferenceInMilliseconds / MillisecondsInDay);
+// console.log(
+//   `I am ${ageInYears} years, ${ageInMonths} months and ${ageInDays} days old.`
+// );
+
+function daysInBetween(date1, date2) {
+  let DiffernceInTime = date2.getTime() - date1.getTime();
+  let differenceInDays = Math.round(DiffernceInTime / (1000 * 3600 * 24));
+  console.log(differenceInDays);
+}
+
+const date1 = new Date(2024, 8, 1);
+const date2 = new Date(2024, 8, 8);
+daysInBetween(date1, date2);
