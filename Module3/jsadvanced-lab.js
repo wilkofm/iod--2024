@@ -63,18 +63,22 @@
 function printMe() {
   console.log("printing debounced message");
 }
-printMe = debounce(printMe); //create this debounce function for a)
-
-//fire off 3 calls to printMe within 300ms - only the LAST one should print, after
-//1000ms of no calls
-setTimeout(printMe, 100);
-setTimeout(printMe, 200);
-setTimeout(printMe, 300);
 
 function debounce(printMe) {
-  console.time("Function timer", 1000);
-  console.log(`\nExecuting function printMe`); // log a message
-  const result = printMe(); // execute the original function and store result
-  console.timeEnd("Function timer"); // stop the timer
-  return result; // return the result of running the original function
+  const wait = 1000;
+  let timeout;
+  return function (...args) {
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+    timeout = setTimeout(() => {
+      printMe(...args);
+    }, wait);
+  };
 }
+
+const debouncedPrintMe = debounce(printMe);
+
+setTimeout(debouncedPrintMe, 100);
+setTimeout(debouncedPrintMe, 200);
+setTimeout(debouncedPrintMe, 300);
