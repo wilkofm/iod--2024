@@ -66,3 +66,37 @@ console.log(Object.getOwnPropertyNames(Object.getPrototypeOf(date))); //inherite
 const str = ""; // simple empty string
 console.log(Object.getPrototypeOf(str) === String.prototype); // true: its prototype is String prototype
 console.log(Object.getOwnPropertyNames(Object.getPrototypeOf(str))); //inherited properties from prototype
+
+// example promise. settles after 250ms with success or failure depending on random number
+const promise = new Promise((resolve, reject) => {
+  // resolve/reject are callback functions
+  if (Math.random() > 0.5)
+    setTimeout(() => resolve("Random number ok"), 250); // success
+  else setTimeout(() => reject("Random number too low"), 250); // failure
+});
+promise // consume the promise by responding to outcomes when they happen
+  .finally(() => console.log("Wait is over, promise has settled.")) // always prints
+  .then((result) => console.log("Success! " + result)) // prints resolve msg
+  .catch((error) => console.log("Error! " + error)); // prints reject msg
+
+//async finction example
+
+async function getData() {
+  try {
+    const response = await fetch("https://reqres.in/api/users"); // this line won't run until promise resolves
+    // console.log("RES", response);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! ${response.status}`);
+    } //if the website link is not OK (if website link is broken etc.) we will recieve this error
+
+    const json = await response.json(); // convert stream to JSON
+    console.log("JSON", json.data);
+  } catch (err) {
+    console.log(`Failed: ${err}`); //this will print if there's an error
+  } finally {
+    console.log("Finished!!"); //this will always print
+  }
+}
+
+getData();
