@@ -60,25 +60,112 @@
 
 //3.
 
-function printMe() {
-  console.log("printing debounced message");
-}
+// function printMe() {
+//   console.log("printing debounced message");
+// }
 
-function debounce(printMe) {
-  const wait = 1000;
-  let timeout;
-  return function (...args) {
-    if (timeout) {
-      clearTimeout(timeout);
-    }
-    timeout = setTimeout(() => {
-      printMe(...args);
-    }, wait);
-  };
-}
+// function debounce(printMe) {
+//   const wait = 1000;
+//   let timeout;
+//   return function (...args) {
+//     if (timeout) {
+//       clearTimeout(timeout);
+//     }
+//     timeout = setTimeout(() => {
+//       printMe(...args);
+//     }, wait);
+//   };
+// }
 
-const debouncedPrintMe = debounce(printMe);
+// const debouncedPrintMe = debounce(printMe);
 
-setTimeout(debouncedPrintMe, 100);
-setTimeout(debouncedPrintMe, 200);
-setTimeout(debouncedPrintMe, 300);
+// setTimeout(debouncedPrintMe, 100);
+// setTimeout(debouncedPrintMe, 200);
+// setTimeout(debouncedPrintMe, 300);
+
+//b)
+
+// function printMe() {
+//   console.log("printing debounced message");
+// }
+
+// function debounce(printMe, ms) {
+//   const wait = 1000;
+//   let timeout;
+//   return function (...args) {
+//     if (timeout) {
+//       clearTimeout(timeout);
+//     }
+//     timeout = setTimeout(() => {
+//       printMe(...args);
+//     }, ms);
+//   };
+// }
+
+// const debouncedPrintMe = debounce(printMe, 1000);
+
+// setTimeout(debouncedPrintMe, 100);
+// setTimeout(debouncedPrintMe, 200);
+// setTimeout(debouncedPrintMe, 300);
+
+//c)
+
+// function printMe(msg) {
+//   console.log(`printing debounced message: ${msg}`);
+// }
+
+// function debounce(printMe, ms) {
+//   const wait = 1000;
+//   let timeout;
+//   return function (...args) {
+//     if (timeout) {
+//       clearTimeout(timeout);
+//     }
+//     timeout = setTimeout(() => {
+//       printMe(...args);
+//     }, ms);
+//   };
+// }
+
+// const debouncedPrintMe = debounce(printMe, 1000);
+
+// debouncedPrintMe("No Show 1");
+// debouncedPrintMe("No Show 2");
+// debouncedPrintMe("Success");
+
+//4.
+
+//a)
+
+// function printFibonacci() {
+//   let a = 1;
+//   let b = 1;
+//   console.log(a);
+//   const interval = setInterval(() => {
+//     console.log(b);
+//     let sum = a + b;
+//     a = b;
+//     b = sum;
+//   }, 1000);
+// }
+
+// printFibonacci();
+
+//b)
+
+// function printFibonacciTimeouts() {
+//   let a = 1;
+//   let b = 1;
+//   function printAgain() {
+//     console.log(a);
+//     let sum = a + b;
+//     a = b;
+//     b = sum;
+//     setTimeout(printAgain, 1000);
+//   }
+//   setTimeout(printAgain, 1000);
+// }
+
+// printFibonacciTimeouts();
+
+//c)
