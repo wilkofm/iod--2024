@@ -169,3 +169,52 @@
 // printFibonacciTimeouts();
 
 //c)
+
+// function printFibonacciTimeouts(limit) {
+//   let a = 1;
+//   let b = 1;
+//   let count = 0;
+
+//   function printAgain() {
+//     if (count < limit) {
+//       console.log(a);
+//       count++;
+//       let sum = a + b;
+//       a = b;
+//       b = sum;
+//       setTimeout(printAgain, 1000);
+//     }
+//   }
+
+//   setTimeout(printAgain, 1000);
+// }
+
+// printFibonacciTimeouts(10);
+
+//5.
+
+let car = {
+  make: "Porsche",
+  model: "911",
+  year: 1964,
+  description() {
+    console.log(`This car is a ${this.make} ${this.model} from ${this.year}`);
+  },
+};
+// car.description();
+// setTimeout(car.description, 200);
+
+//The setTimeOut call does not work because of the use of 'this' within the console.log, 'this' loses it's context when using setTimeOut as it no longer links to 'car'
+
+//a)
+
+// setTimeout(function () {
+//   car.description();
+// }, 200);
+
+//b)
+
+let carClone = Object.assign({}, car, { year: 1990 });
+
+console.log(carClone);
+carClone.description();
