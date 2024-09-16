@@ -193,14 +193,14 @@
 
 //5.
 
-let car = {
-  make: "Porsche",
-  model: "911",
-  year: 1964,
-  description() {
-    console.log(`This car is a ${this.make} ${this.model} from ${this.year}`);
-  },
-};
+// let car = {
+//   make: "Porsche",
+//   model: "911",
+//   year: 1964,
+//   description() {
+//     console.log(`This car is a ${this.make} ${this.model} from ${this.year}`);
+//   },
+// };
 // car.description();
 // setTimeout(car.description, 200);
 
@@ -214,9 +214,28 @@ let car = {
 
 //b)
 
-let carClone = Object.assign({}, car, { year: 1990 });
+// let carClone = Object.assign({}, car, { year: 1990 });
 
-console.log(carClone);
-carClone.description();
+// console.log(carClone);
+// carClone.description();
 
 //c)
+
+//The delayed description() uses the original values as it is calling the car description from the original object, not the updated clone
+
+//d)
+
+// setTimeout(car.description.bind(car), 200);
+
+//e)
+
+// let carCloneTwo = Object.assign({}, car, { model: "718" });
+
+// setTimeout(carCloneTwo.description.bind(carCloneTwo), 200);
+
+//6.
+
+function multiply(a, b) {
+  console.log(a * b);
+}
+multiply.delay(500)(5, 5); // prints 25 after 500 milliseconds
