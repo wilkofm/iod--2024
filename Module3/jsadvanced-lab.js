@@ -218,3 +218,5 @@ let carClone = Object.assign({}, car, { year: 1990 });
 
 console.log(carClone);
 carClone.description();
+
+//c)

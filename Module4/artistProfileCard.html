@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #e3f2fd;
+      }
+      .card {
+        padding: 10px;
+      }
+      .card-title {
+        font-weight: 600;
+        font-size: 3em;
+        padding: 0 0 10px 0;
+      }
+      .card-description {
+        font-weight: 400;
+        font-size: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <template id="artist-template">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title"></div>
+          <div class="portfolio-container"></div>
+        </div>
+      </div>
+    </template>
+    <template id="portfolio-template">
+     <div class = "portfolio-item">
+        <div class = "portfolio-item-title"></div>
+        <img class = "portfolio-item-image" width="400" height=""></img>
+     </div>
+    </template>
+    <div id="card-list"></div>
+    <script>
+        function addArtist(name, portfolio) {
+            const template = document.getElementById("artist-template").content.cloneNode(true);
+           
+            document.querySelector('.card-title').innerText = name
+           
+           portfolio.forEach(item => {
+            const portfolioTemplate = document.getElementById("portfolio-template").clone.cloneNode(true)
+
+            portfolioTemplate.querySelector('.portfolio-item-title').innerText = item.title
+            portfolioTemplate.querySelector('.portfolio-item-image').src = item.url
+            portfolioTemplate.querySelector('.portfolio-item-image').alt = item.title
+             portfolioTemplate.querySelector('.portfolio-contatiner').appendChild(portfolioTemplate)
+           })
+           
+           document.getElementById('card-list').appendChild(template)
+        }
+
+        addArtist(artist.name, artist.portfolio)
+    </script>
+  </body>
+</html>
