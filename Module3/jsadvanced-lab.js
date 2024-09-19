@@ -239,3 +239,10 @@ function multiply(a, b) {
   console.log(a * b);
 }
 multiply.delay(500)(5, 5); // prints 25 after 500 milliseconds
+
+//Call, apply & bind are properties that belong to the Function prototype - there are many
+//others on the Object, String, Date, Number, Array etc. prototypes.
+
+function delay(ms) {
+  let delay = setTimeout(ms);
+}
