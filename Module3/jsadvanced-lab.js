@@ -235,14 +235,60 @@
 
 //6.
 
-function multiply(a, b) {
-  console.log(a * b);
-}
-multiply.delay(500)(5, 5); // prints 25 after 500 milliseconds
+// Function.prototype.delay = function (ms) {
+//   const delayFunction = this;
+//   return function (a, b) {
+//     setTimeout(() => delayFunction.apply(this, [a, b]), ms);
+//   };
+// };
 
-//Call, apply & bind are properties that belong to the Function prototype - there are many
-//others on the Object, String, Date, Number, Array etc. prototypes.
+// function multiply(a, b) {
+//   console.log(a * b);
+// }
+// multiply.delay(500)(5, 5);
 
-function delay(ms) {
-  let delay = setTimeout(ms);
+//a)
+
+// function add(a, b) {
+//   console.log(a + b);
+// }
+// add.delay(1000)(55, 82);
+
+// function divide(a, b) {
+//   console.log(a / b);
+// }
+// divide.delay(1500)(5, 2);
+
+//b and c)
+
+// Function.prototype.delay = function (ms) {
+//   const delayFunction = this;
+//   return function (...args) {
+//     setTimeout(() => delayFunction.apply(this, args), ms);
+//   };
+// };
+
+// function multiply(a, b, c, d) {
+//   console.log(a * b * c * d);
+// }
+// // multiply.delay(500)(5, 5, 5);
+// multiply.delay(1000)(5, 5, 5, 5);
+
+//7)
+
+function Person(name, age, gender) {
+  this.name = name;
+  this.age = age;
+  this.gender = gender;
 }
+const person1 = new Person("James Brown", 73, "male");
+const person2 = new Person("Michael Jackson", 50, "male");
+const person3 = new Person("Whitney Houston", 48, "male");
+
+Person.prototype.toString = function personToString() {
+  return `${this.name} ${this.age} ${this.gender}`;
+};
+
+console.log("person1: " + person1.toString());
+console.log("person2: " + person2.toString());
+console.log("person3: " + person3.toString());
