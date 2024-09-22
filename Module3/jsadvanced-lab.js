@@ -274,21 +274,188 @@
 // // multiply.delay(500)(5, 5, 5);
 // multiply.delay(1000)(5, 5, 5, 5);
 
-//7)
+//7.
 
-function Person(name, age, gender) {
-  this.name = name;
-  this.age = age;
-  this.gender = gender;
+// function Person(name, age, gender) {
+//   this.name = name;
+//   this.age = age;
+//   this.gender = gender;
+// }
+
+// const person1 = new Person("James Brown", 73, "male");
+// const person2 = new Person("Michael Jackson", 50, "male");
+// const person3 = new Person("Whitney Houston", 48, "male");
+
+// Person.prototype.toString = function personToString() {
+//   return `${this.name} ${this.age} ${this.gender}`;
+// };
+
+// console.log("person1: " + person1.toString());
+// console.log("person2: " + person2.toString());
+// console.log("person3: " + person3.toString());
+
+// function Student(name, age, gender, cohort) {
+//   Person.call(this, name, age, gender);
+//   this.cohort = cohort;
+// }
+
+// Student.prototype.toString = function studentToString() {
+//   return `${this.name} ${this.age} ${this.gender} ${this.cohort}`;
+// };
+
+// const student1 = new Student("Prince", 57, "male", "School of Rock");
+// const student2 = new Student("George Michael", 53, "male", "School of Pop");
+
+// console.log("student1: " + student1.toString());
+// console.log("student2: " + student2.toString());
+
+//8.
+
+// class DigitalClock {
+//   constructor(prefix) {
+//     this.prefix = prefix;
+//   }
+//   display() {
+//     let date = new Date();
+//     //create 3 variables in one go using array destructuring
+//     let [hours, mins, secs] = [
+//       date.getHours(),
+//       date.getMinutes(),
+//       date.getSeconds(),
+//     ];
+//     if (hours < 10) hours = "0" + hours;
+//     if (mins < 10) mins = "0" + mins;
+//     if (secs < 10) secs = "0" + secs;
+//     console.log(`${this.prefix} ${hours}:${mins}:${secs}`);
+//   }
+//   stop() {
+//     clearInterval(this.timer);
+//   }
+//   start() {
+//     this.display();
+//     this.timer = setInterval(() => this.display(), 1000);
+//   }
+// }
+// const myClock = new DigitalClock("my clock:");
+// myClock.start();
+
+// class PrecisionClock extends DigitalClock {
+//   constructor(prefix, precision = 1000) {
+//     super(prefix);
+//     this.precision = precision;
+//   }
+//   start() {
+//     this.display();
+//     this.timer = setInterval(() => this.display(), this.precision);
+//   }
+// }
+
+// const myPrecisionClock = new PrecisionClock("my clock:", 200);
+// myPrecisionClock.start();
+
+// class AlarmClock extends DigitalClock {
+//   constructor(prefix, wakeupTime = "07:00") {
+//     super(prefix);
+//     this.wakeupTime = wakeupTime;
+//   }
+//   start() {
+//     this.display();
+//     this.timer = setInterval(() => {
+//       this.display();
+
+//       let date = new Date();
+//       let hours = date.getHours().toString();
+//       let minutes = date.getMinutes().toString();
+//       let timeNow = `${hours}:${minutes}`;
+
+//       if (timeNow === this.wakeupTime) {
+//         console.log("Wake Up!");
+//         this.stop();
+//       }
+//     }, 1000);
+//   }
+// }
+
+//9.
+
+//a)
+
+// function randomDelay() {
+//   return new Promise((resolve) => {
+//     const delay = Math.floor(Math.random() * 20 + 1) * 1000;
+//     setTimeout(() => {
+//       resolve();
+//     }, delay);
+//   });
+// }
+
+// randomDelay().then(() => console.log("There appears to have been a delay."));
+
+//b)
+
+// function randomDelay() {
+//   return new Promise((resolve, reject) => {
+//     const delay = Math.floor(Math.random() * 20 + 1) * 1000;
+//     if ((delay / 1000) % 2 === 0) {
+//       setTimeout(() => {
+//         resolve("delay is even");
+//       }, delay);
+//     } else {
+//       setTimeout(() => {
+//         reject("delay is uneven");
+//       }, delay);
+//     }
+//   });
+// }
+
+// randomDelay()
+//   .then((message) => console.log(message))
+//   .catch((error) => console.error(error));
+
+//c)
+
+// randomDelay()
+//   .then((message) => console.log(message))
+//   .catch((error) => console.error("error: this delay is uneven!"));
+
+//d)
+
+// function randomDelay() {
+//   return new Promise((resolve, reject) => {
+//     const delay = Math.floor(Math.random() * 20 + 1) * 1000;
+//     if ((delay / 1000) % 2 === 0) {
+//       setTimeout(() => {
+//         resolve(delay);
+//       }, delay);
+//     } else {
+//       setTimeout(() => {
+//         reject(delay);
+//       }, delay);
+//     }
+//   });
+// }
+
+// randomDelay()
+//   .then((delay) => console.log(`${delay / 1000} seconds is even`))
+//   .catch((delay) => console.error(`${delay / 1000} seconds is uneven`));
+
+//10.
+
+//run 'npm init' and accept all the defaults
+//run 'npm install node-fetch'
+//add this line to package.json after line 5: "type": "module",
+import fetch from "node-fetch";
+globalThis.fetch = fetch;
+function fetchURLData(url) {
+  let fetchPromise = fetch(url).then((response) => {
+    if (response.status === 200) {
+      return response.json();
+    } else {
+      throw new Error(`Request failed with status ${response.status}`);
+    }
+  });
+  return fetchPromise;
 }
-const person1 = new Person("James Brown", 73, "male");
-const person2 = new Person("Michael Jackson", 50, "male");
-const person3 = new Person("Whitney Houston", 48, "male");
-
-Person.prototype.toString = function personToString() {
-  return `${this.name} ${this.age} ${this.gender}`;
-};
-
-console.log("person1: " + person1.toString());
-console.log("person2: " + person2.toString());
-console.log("person3: " + person3.toString());
+fetchURLData("https://jsonplaceholder.typicode.com/todos/1")
+  .then((data) => console.log(data))
+  .catch((error) => console.error(error.message));
