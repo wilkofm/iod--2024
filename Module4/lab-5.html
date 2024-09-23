@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <template id="news-template">
+    <div class="card col-8" style="width: 18rem; margin: 10px">
+      <div class="card-body">
+        <h5 class="card-title">News title</h5>
+        <p class="card-text">News text.</p>
+      </div>
+    </div>
+  </template>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min
+.css"
+      rel="stylesheet"
+    />
+    <title>News</title>
+  </head>
+  <body>
+    <div id="news-list" class="row"></div>
+    <script>
+      let news = [
+        {
+          id: 1,
+          title: "Election Results",
+          content: "Newly elected minister...",
+        },
+        { id: 2, title: "Sporting Success", content: "World Cup winners..." },
+        {
+          id: 3,
+          title: "Tornado Warning",
+          content: "Residents should prepare...",
+        },
+      ];
+      function getNews() {
+        return new Promise((resolve) => {
+          setTimeout(function () {
+            // resolve the promise with the news data after 1s
+            resolve(news);
+          }, 1000);
+        });
+      }
+
+      function addCard(news) {
+        const template = document
+          .getElementById("news-template")
+          .content.cloneNode(true);
+        template.querySelector(".card-title").innerText = news.title;
+        template.querySelector(".card-text").innerText = news.content;
+        document.querySelector("#news-list").appendChild(template);
+      }
+      function readNews() {
+        getNews().then((news) => {
+          document.querySelector("#news-list").innerHTML = "";
+          news.forEach((newsItem) => {
+            addCard(newsItem);
+          });
+        });
+      }
+      setInterval(readNewsArray, 5000);
+    </script>
+  </body>
+</html>
+
+setInterval(addCard, 5000)
