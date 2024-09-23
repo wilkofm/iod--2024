@@ -444,6 +444,7 @@
 //run 'npm init' and accept all the defaults
 //run 'npm install node-fetch'
 //add this line to package.json after line 5: "type": "module",
+
 import fetch from "node-fetch";
 globalThis.fetch = fetch;
 function fetchURLData(url) {
@@ -456,6 +457,63 @@ function fetchURLData(url) {
   });
   return fetchPromise;
 }
-fetchURLData("https://jsonplaceholder.typicode.com/todos/1")
+// fetchURLData("https://jsonplaceholder.typicode.com/todos/1")
+//   .then((data) => console.log(data))
+//   .catch((error) => console.error(error.message));
+
+fetchURLData("https://www.youtube.com/watch?v=9wXBDnAGTjk")
   .then((data) => console.log(data))
   .catch((error) => console.error(error.message));
+
+//a)
+
+import fetch from "node-fetch";
+globalThis.fetch = fetch;
+async function fetchURLData() {
+  try {
+    const response = await fetch("https://www.youtube.com/watch?v=9wXBDnAGTjk");
+
+    if (!response.ok) {
+      throw new Error(`Request failed with status ${response.status}`);
+    }
+    const json = await response.json();
+    console.log("JSON", json);
+  } catch (err) {
+    console.log(`Failed: ${err}`);
+  } finally {
+    console.log("Finished!!");
+  }
+}
+
+fetchURLData();
+
+//c)
+
+import fetch from "node-fetch";
+globalThis.fetch = fetch;
+async function fetchURLData() {
+  try {
+    const fetchPromises = urls.map(async (url) => {
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`);
+      }
+      return await response.json();
+    });
+    const results = await Promise.all(fetchPromises);
+    console.log("Fetched:", results);
+  } catch (err) {
+    console.log(`Failed: ${err}`);
+  } finally {
+    console.log("Finished!!");
+  }
+}
+
+const urls = [
+  "https://www.youtube.com/watch?v=9wXBDnAGTjk",
+  "https://www.youtube.com/watch?v=b0GEGer_Mdk",
+  "https://www.youtube.com/watch?v=YjTZMEbpKsc",
+];
+
+fetchURLData(urls);
