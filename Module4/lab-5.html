@@ -71,9 +71,26 @@
         .getElementById("news-form")
         .addEventListener("submit", function (e) {
           e.preventDefault();
+
+          const title = document.getElementById("news-title").value;
+          const content = document.getElementById("news-content").value;
+
+          const newNews = {
+            id: news.length + 1,
+            title: title,
+            content: content,
+          };
+          news.push(newNews);
+
+          document.getElementById("news-title").value = "";
+          document.getElementById("news-content").value = "";
+
+          readNews();
         });
 
       setInterval(readNews, 5000);
+
+      readNews();
     </script>
   </body>
 </html>
