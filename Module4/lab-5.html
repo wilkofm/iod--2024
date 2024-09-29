@@ -27,6 +27,8 @@
       <input type="text" id="news-content" /><br /><br />
       <input type="submit" value="Submit News" />
     </form>
+    <br />
+    <button id="stop-news">Stop News</button>
     <script>
       let news = [
         {
@@ -88,7 +90,13 @@
           readNews();
         });
 
-      setInterval(readNews, 5000);
+      let newsInterval = setInterval(readNews, 5000);
+
+      document
+        .getElementById("stop-news")
+        .addEventListener("click", function () {
+          clearInterval(newsInterval);
+        });
 
       readNews();
     </script>
