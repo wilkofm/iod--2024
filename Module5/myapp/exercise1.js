@@ -1,6 +1,9 @@
+const testRoutes = require("./routes/myTestRoutes");
 const express = require("express");
 const app1 = express();
 const port3000 = 3000;
+
+app.use("/mytest", testRoutes);
 
 app1.get("/", (req, res) => {
   res.send("Hello from server port 3000!");

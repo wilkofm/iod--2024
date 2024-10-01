@@ -1,7 +1,9 @@
+const testRoutes = require("./routes/myTestRoutes");
 const express = require("express");
 const app = express();
 const port = 3000;
-const testRoutes = require("./routes/myTestRoutes");
+
+app.use("/mytest", testRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello from our server!");
@@ -16,6 +18,10 @@ app.listen(port, () => {
 at http://localhost:${port}`);
 });
 
-app.use("/", express.static("public"));
+// app.use("/", express.static("public"));
 
-app.use("/mytest", testRoutes);
+app.get("/test", (req, res) => {
+  res.send("Hello World!");
+});
+
+// app.use("/mytest", testRoutes);
