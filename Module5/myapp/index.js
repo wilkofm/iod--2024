@@ -1,9 +1,11 @@
 const testRoutes = require("./routes/myTestRoutes");
+const calculatorRoutes = require("./routes/calculatorRoutes");
 const express = require("express");
 const app = express();
 const port = 3000;
 
 app.use("/mytest", testRoutes);
+app.use("/calculator", calculatorRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello from our server!");
@@ -18,7 +20,7 @@ app.listen(port, () => {
 at http://localhost:${port}`);
 });
 
-// app.use("/", express.static("public"));
+app.use("/", express.static("public"));
 
 app.get("/test", (req, res) => {
   res.send("Hello World!");
