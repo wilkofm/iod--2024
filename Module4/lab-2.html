@@ -32,23 +32,23 @@
     </template>
     <div id="card-list"></div>
     <script>
-      const data = [
-        { name: "bob", age: 23 },
-        { name: "alice", age: 39 },
-      ];
-      const artist = {
-        name: "Van Gogh",
-        portfolio: [
-          {
-            title: "portrait",
-            url: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/436532/1671316/main-image",
-          },
-          {
-            title: "sky",
-            url: "https://mymodernmet.com/wp/wp-content/uploads/2020/11/White-house-night-van-goh-worldwide-2.jpg",
-          },
-        ],
-      };
+      // const data = [
+      //   { name: "bob", age: 23 },
+      //   { name: "alice", age: 39 },
+      // ];
+      // const artist = {
+      //   name: "Van Gogh",
+      //   portfolio: [
+      //     {
+      //       title: "portrait",
+      //       url: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/436532/1671316/main-image",
+      //     },
+      //     {
+      //       title: "sky",
+      //       url: "https://mymodernmet.com/wp/wp-content/uploads/2020/11/White-house-night-van-goh-worldwide-2.jpg",
+      //     },
+      //   ],
+      // };
 
       const artists = [
         {
@@ -68,6 +68,7 @@
         },
       ];
 
+      //Exercise 2
       // function addCard(title, text) {
       //   // clone the template
       //   const template = document
@@ -84,21 +85,40 @@
       //   addCard(item.name, item.age);
       // });
 
+      //Exercise 3
+      // function addCard(title, text, imageUrl = null) {
+      //   const template = document
+      //     .getElementById("card-template")
+      //     .content.cloneNode(true);
+      //   template.querySelector(".card-title").innerText = title;
+      //   template.querySelector(".card-text").innerText = text;
+
+      //   const img = template.querySelector(".card-image");
+      //   img.src = imageUrl;
+      //   img.style.display = "block";
+      //   document.querySelector("#card-list").appendChild(template);
+      // }
+      // addCard(artist.name, "portfolio");
+      // artist.portfolio.forEach((item) => {
+      //   addCard(item.title, "Painting by " + artist.name, item.url);
+      // });
+
+      //Extension
       function addCard(title, text, imageUrl = null) {
         const template = document
           .getElementById("card-template")
           .content.cloneNode(true);
         template.querySelector(".card-title").innerText = title;
-        template.querySelector(".card-text").innerText = text;
+        template.querySelector(".card-text").innerText = name;
 
         const img = template.querySelector(".card-image");
         img.src = imageUrl;
         img.style.display = "block";
         document.querySelector("#card-list").appendChild(template);
       }
-      addCard(artist.name, "portfolio");
-      artist.portfolio.forEach((item) => {
-        addCard(item.title, "Painting by " + artist.name, item.url);
+
+      artists.forEach((artist) => {
+        addCard(artist.name, artist.title, artist.url);
       });
     </script>
   </body>
