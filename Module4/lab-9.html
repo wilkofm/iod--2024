@@ -15,14 +15,19 @@
       let options = {
         title: { text: "Fake Store Categories" },
         xAxis: {
-          data: ["Category 1", "Category 2", "Category 3", "Category 4"],
+          data: [
+            "Men's Clothing",
+            "Jewellery",
+            "Electronics",
+            "Women's Clothing",
+          ],
         },
         yAxis: {},
         series: [
           {
             name: "# products",
             type: "bar",
-            data: [0, 1, 5, 2],
+            data: [4, 4, 6, 6],
           },
         ],
       };
@@ -32,9 +37,9 @@
           console.log(json);
           // use this JSON to find and set correct option data for the chart
         })
-        let categoryCounter = {};
         // INSERT FOREACH IN HERE
         .then(() => {
+          let categoryCounter = {};
           // Display the chart
           myChart.setOption(options);
         });
