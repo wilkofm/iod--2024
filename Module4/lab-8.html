@@ -4,21 +4,73 @@
     <!-- reference Moment.js library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.mi
 n.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.40/moment-timezone-with-data.min.js"></script>
   </head>
   <body>
     <h2>Moment Date</h2>
     <!-- container for Moment.js output -->
     <div id="displayMoment"></div>
+    <div id="closestDate"></div>
+    <div id="londonTime"></div>
     <script type="text/javascript">
-      (function () {
-        // instantiate a moment object
-        let nowMoment = moment("19900501", "YYYYMMDD").fromNow();
-        // instantiate a JavaScript Date object
-        let nowDate = new Date();
-        // display value of moment object in #displayMoment div
-        let eDisplayMoment = document.getElementById("displayMoment");
-        eDisplayMoment.innerHTML = nowMoment;
-      })();
+      function calculateDifference() {
+        let birthDate = moment("19900501", "YYYYMMDD");
+
+        let nowDate = moment();
+
+        let years = nowDate.diff(birthDate, "years");
+        birthDate.add(years, "years");
+
+        let months = nowDate.diff(birthDate, "months");
+        birthDate.add(months, "months");
+
+        let days = nowDate.diff(birthDate, "days");
+        birthDate.add(days, "days");
+
+        let eDisplayMoment = (document.getElementById(
+          "displayMoment"
+        ).innerHTML = `${years} years, ${months} months, and ${days} days`);
+      }
+
+      function closestDate() {
+        let birthDate = moment("19900501", "YYYYMMDD");
+        let randomDate = moment("20020220", "YYYYMMDD");
+
+        let nowDate = moment();
+
+        let date1 = Math.abs(nowDate.diff(birthDate, "days"));
+        let date2 = Math.abs(nowDate.diff(randomDate, "days"));
+        let closestDate = date1 < date2 ? birthDate : randomDate;
+
+        let compare = "";
+        if (birthDate.isBefore(randomDate)) {
+          compare = "earlier";
+        } else {
+          compare = "after";
+        }
+
+        let eDisplayMoment = (document.getElementById(
+          "closestDate"
+        ).innerHTML = `The closest date is ${closestDate.format(
+          "YYYY-MM-DD"
+        )} and my birthday is ${compare} than the random date ${randomDate.format(
+          "YYYY-MM-DD"
+        )}`);
+      }
+
+      function londonTime() {
+        let londonTime = moment()
+          .tz("Europe/London")
+          .format("DD/MM/YYYY HH:mm");
+
+        let eDisplayMoment = (document.getElementById(
+          "londonTime"
+        ).innerHTML = `The current date/time in London is ${londonTime}`);
+      }
+
+      calculateDifference();
+      closestDate();
+      londonTime();
     </script>
   </body>
 </html>
