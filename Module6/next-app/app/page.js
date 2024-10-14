@@ -1,14 +1,36 @@
 import Image from "next/image";
+import { FullName } from "@/components/FullName";
+// import { ComplexComment } from "@/components/ComplexComponent";
+import { ComplexComment, Comment } from "@/components/ComplexComponent";
 
 import {
   ExampleComponent,
   ExampleComponent2,
 } from "@/components/ExampleComponent";
 
+// object storing comment data - passed as props
+const comment = {
+  date: new Date(),
+  text: "I hope you enjoy learning React!",
+  author: {
+    // author is also an object
+    name: "Hello Kitty",
+    avatarUrl:
+      "https://www.catschool.co/wp-content/uploads/2023/06/orange-tabby-kitten-1024x731.png",
+  },
+};
+
 export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+        <FullName first="Max" middle="Ferris" last="Wilkinson" />
+        {/* render the component, passing object data as props */}
+        <ComplexComment
+          author={comment.author}
+          date={comment.date}
+          text={comment.text}
+        />
         <ExampleComponent />
         <ExampleComponent2 />
         <Image
