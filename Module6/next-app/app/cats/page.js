@@ -1,12 +1,4 @@
-function SingleCat({ name, latinName, image }) {
-  return (
-    <div>
-      <h1>{name}</h1>
-      <p>{latinName}</p>
-      <img src={image} alt={name}></img>
-    </div>
-  );
-}
+import { CatList } from "@/components/CatList";
 
 export default function BigCats() {
   const cats = [
@@ -62,15 +54,8 @@ export default function BigCats() {
 
   return (
     <>
-      <h1>Big Cats</h1>
-      {cats.map((cat) => (
-        <SingleCat
-          id={cat.id}
-          name={cat.name}
-          latinName={cat.latinName}
-          image={cat.image}
-        />
-      ))}
+      <h1>Cat List</h1>
+      <CatList />
     </>
   );
 }

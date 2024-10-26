@@ -1,14 +1,15 @@
-// separate component for displaying each movie
+import { MoviesList } from "@/components/MovieList";
+
 function Movie({ title, year, synopsis }) {
   return (
-    <li>
+    <li className="list-none">
       <h3>{title}</h3> <span>({year})</span>
-      <div>{synopsis}</div>
+      <div>({synopsis})</div>
     </li>
   );
 }
 
-export default function MovieList() {
+export default function MoviesPage() {
   const movies = [
     {
       id: 1,
@@ -33,14 +34,7 @@ export default function MovieList() {
   return (
     <>
       <h1>Movie List</h1>
-      {movies.map((movie) => (
-        <Movie
-          id={movie.id}
-          title={movie.title}
-          year={movie.year}
-          synopsis={movie.synopsis}
-        />
-      ))}
+      <MoviesList />
     </>
   );
 }
