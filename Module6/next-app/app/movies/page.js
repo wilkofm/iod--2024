@@ -1,4 +1,10 @@
 import { MoviesList } from "@/components/MovieList";
+import { AddMovieForm } from "@/components/AddMovieForm";
+
+// const handleAddMovie = (newMovie) => {
+//   newMovie.id = currentMovies.length + 1; // unreliable but succinct
+//   setCurrentMovies([...currentMovies, newMovie]);
+// };
 
 function Movie({ title, year, synopsis }) {
   return (
@@ -35,6 +41,7 @@ export default function MoviesPage() {
     <>
       <h1>Movie List</h1>
       <MoviesList />
+      <AddMovieForm onAddMovie={handleAddMovie} />
     </>
   );
 }

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
+import ExplodingBomb from "../components/ExplodingBomb";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Welcome from "./Welcome";
@@ -25,6 +26,7 @@ function App() {
 
   return (
     <>
+      <ExplodingBomb />
       <Greeting name="Friends!">Great to see you!</Greeting>
       <Welcome name="students">
         <p>Children of Welcome</p>
