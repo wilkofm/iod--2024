@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { AddCatForm } from "./AddCatForm";
 
 const cats = [
   {
@@ -55,6 +56,14 @@ const cats = [
 export function CatList() {
   const [currentCats, setCurrentCats] = useState(cats);
 
+  const addCat = (newCat) => {
+    setCurrentCats((prevCats) => [...prevCats, newCat]);
+  };
+
+  const deleteCat = (id) => {
+    setCurrentCats((prevCats) => prevCats.filter((cat) => cat.id !== id));
+  };
+
   const reverseCats = () => {
     // first clone the original, so we don’t mutate it
     let newCats = [...currentCats];
@@ -81,6 +90,7 @@ export function CatList() {
 
   return (
     <>
+      <AddCatForm addCat={addCat} />
       <button
         className="px-2 py-3 bg-blue-500 rounded-lg"
         onClick={reverseCats}
@@ -111,8 +121,11 @@ export function CatList() {
           <h1>{cat.name}</h1>
           <p>{cat.latinName}</p>
           <img src={cat.image} alt={cat.name} width="500"></img>
+          <button onClick={() => deleteCat(cat.id)}>Delete</button>
         </div>
       ))}
     </>
   );
 }
+
+export function AddCat() {}

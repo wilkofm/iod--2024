@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-export function AddCatForm() {
+export function AddCatForm({ addCat }) {
   // input state values always need to be strings - empty initially
   const [catName, setCatName] = useState("");
   const [catLatinName, setLatinName] = useState("");
@@ -10,7 +10,17 @@ export function AddCatForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const newCat = {
+      id: Date.now(),
+      name: catName,
+      latinName: catLatinName,
+      image: catImage,
+    };
+    addCat(newCat);
     setSubmitResults("New cat added");
+    setCatName("");
+    setLatinName("");
+    setImage("");
   };
 
   return (
