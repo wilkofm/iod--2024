@@ -1,31 +1,12 @@
 import { useState } from "react";
-import { useEffect } from "react";
+import useBitcoinPrice from "../hooks/useBitcoinPrice";
 
 const currencies = ["USD", "AUD", "NZD", "GBP", "EUR", "SGD"];
 
 export function BitcoinRates() {
   const [currency, setCurrency] = useState(currencies[0]);
-  const [price, setPrice] = useState(null);
+  const { price, loading, error } = useBitcoinPrice(currency);
 
-  useEffect(() => {
-    console.log("running effect");
-    let ignore = false;
-
-    fetch(
-      `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=${currency}`
-    )
-      .then((response) => response.json())
-      .then((json) => {
-        if (!ignore) setPrice(json.bitcoin[currency.toLowerCase()]);
-      });
-
-    return () => {
-      ignore = true;
-      console.log("Cleanup effect");
-    };
-  }, [currency]);
-
-  // fetch URL: https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=${currency}
   const options = currencies.map((currency) => (
     <option value={currency} key={currency}>
       {currency}
@@ -42,13 +23,13 @@ export function BitcoinRates() {
         </select>
       </label>
       <div>
-        {price !== null ? (
+        {loading && <p>Loading...</p>}
+        {error && <p>{error}</p>}
+        {price !== null && !loading && (
           <p>
             {" "}
             Current price in {currency}: {price}
           </p>
-        ) : (
-          <p>Loading...</p>
         )}
       </div>
     </div>

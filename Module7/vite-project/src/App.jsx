@@ -11,21 +11,26 @@ import { ReducerCounter } from "../components/ReducerCounter";
 import { PostListReducer } from "../components/PostListReducer";
 import { PostListState } from "../components/PostListState";
 import { SubscribeForm } from "../components/SubcribeForm";
+import { UserProvider } from "../context/UserContext";
+import { LoginForm } from "../components/LoginForm";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      {/* <SubscribeForm /> */}
-      {/* <PostListState /> */}
-      <PostListReducer />
-      <ReducerCounter />
-      <VideoPlayer />
-      <RefCounter />
-      <ClockDisplay />
-      {/* <ActivityFinder /> */}
-      <BitcoinRates />
+      <UserProvider>
+        <LoginForm />
+        {/* <SubscribeForm /> */}
+        {/* <PostListState /> */}
+        <PostListReducer />
+        <ReducerCounter />
+        <VideoPlayer />
+        <RefCounter />
+        <ClockDisplay />
+        {/* <ActivityFinder /> */}
+        <BitcoinRates />
+      </UserProvider>
     </>
   );
 }

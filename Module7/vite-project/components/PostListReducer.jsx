@@ -1,7 +1,24 @@
 import { useEffect, useReducer } from "react"; // continued on next slide
 import axios from "axios"; // first do 'npm install axios' - alternative to fetch
+import { UserProvider, useUserContext } from "../context/UserContext";
+import { LoginForm } from "./LoginForm";
 
 export function PostListReducer() {
+  const { currentUser } = useUserContext();
+  // reducer function for axios fetch response
+  // called from dispatch when state is updated, lets us handle different actions
+  // return object should match same structure as initial state passed to useReducer
+  function reducer(postsResult, action) {
+    switch (action.type) {
+      case "FETCH_SUCCESS":
+        return { loading: false, posts: action.payload, error: "" };
+      case "FETCH_ERROR":
+        return { loading: false, posts: [], error: action.payload };
+      default:
+        return { ...postsResult, loading: false };
+    }
+  } // What would this component look like using useState instead of useReducer?
+
   const [postsResult, dispatch] = useReducer(reducer, {
     // initial state for postsResult state variable
     loading: true, // true when loading and no data in posts
@@ -24,6 +41,9 @@ export function PostListReducer() {
   // returned JSX uses the 3 things stored in postsResult state object to conditionally render data or an error message
   return (
     <div className="PostList componentBox">
+      <h1>
+        <LoginForm />
+      </h1>
       {postsResult.loading ? (
         <div>Loading posts...</div>
       ) : (
@@ -44,17 +64,3 @@ export function PostListReducer() {
     </div>
   );
 }
-
-// reducer function for axios fetch response
-// called from dispatch when state is updated, lets us handle different actions
-// return object should match same structure as initial state passed to useReducer
-function reducer(postsResult, action) {
-  switch (action.type) {
-    case "FETCH_SUCCESS":
-      return { loading: false, posts: action.payload, error: "" };
-    case "FETCH_ERROR":
-      return { loading: false, posts: [], error: action.payload };
-    default:
-      return { ...postsResult, loading: false };
-  }
-} // What would this component look like using useState instead of useReducer?
