@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import useBitcoinPrice from "../hooks/useBitcoinPrice";
+import { MoodChanger } from "../components/Emoji";
 
 const currencies = ["USD", "AUD", "NZD", "GBP", "EUR", "SGD"];
 
@@ -32,6 +33,7 @@ export function BitcoinRates() {
           </p>
         )}
       </div>
+      <MoodChanger />
     </div>
   );
 }

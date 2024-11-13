@@ -13,6 +13,10 @@ import { PostListState } from "../components/PostListState";
 import { SubscribeForm } from "../components/SubcribeForm";
 import { UserProvider } from "../context/UserContext";
 import { LoginForm } from "../components/LoginForm";
+import MyThemeProvider from "../context/ThemeContext";
+import ThemeSwitcher from "../components/ThemeSwitcher";
+import { MoodChanger } from "../components/Emoji";
+import { EmojiProvider } from "../context/EmojiContext";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -20,16 +24,22 @@ function App() {
   return (
     <>
       <UserProvider>
-        <LoginForm />
-        {/* <SubscribeForm /> */}
-        {/* <PostListState /> */}
-        <PostListReducer />
-        <ReducerCounter />
-        <VideoPlayer />
-        <RefCounter />
-        <ClockDisplay />
-        {/* <ActivityFinder /> */}
-        <BitcoinRates />
+        <MyThemeProvider>
+          <ThemeSwitcher />
+          <LoginForm />
+          {/* <SubscribeForm /> */}
+          {/* <PostListState /> */}
+          <EmojiProvider>
+            <MoodChanger />
+            <PostListReducer />
+            <ReducerCounter />
+            <VideoPlayer />
+            <RefCounter />
+            <ClockDisplay />
+            {/* <ActivityFinder /> */}
+            <BitcoinRates />
+          </EmojiProvider>
+        </MyThemeProvider>
       </UserProvider>
     </>
   );

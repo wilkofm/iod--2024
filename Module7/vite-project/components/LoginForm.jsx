@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { useUserContext } from "../context/UserContext";
+import { useContext } from "react";
+import { MyThemeContext } from "../context/ThemeContext";
 
 function LoginForm() {
+  const { theme, darkMode } = useContext(MyThemeContext);
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [submitResult, setSubmitResult] = useState("");
@@ -34,7 +37,10 @@ function LoginForm() {
     );
 
   return (
-    <div>
+    <div
+      className="LoginForm componentBox"
+      style={{ background: theme.background, color: theme.foreground }}
+    >
       <form onSubmit={handleSubmit}>
         <div>
           <label>
