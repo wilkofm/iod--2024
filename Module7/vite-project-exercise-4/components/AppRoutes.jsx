@@ -1,10 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Homepage from "../pages/HomePage";
-import AboutPage from "../pages/AboutPage";
-import DashboardPage from "../pages/DashboardPage";
-import { DashboardMessages, DashboardTasks } from "../pages/DashboardPage";
-import PageNotFound from "../pages/PageNotFound";
-import PostsPage, { Post, PostList } from "../pages/PostsPage";
+import BitcoinRatesPage from "../pages/BitcoinRatesPage";
+import LoginPage from "../pages/LoginPage";
 
 // special component containing all the possible routes for this app
 // any props passed into AppRoutes will also be passed onto
@@ -14,12 +11,6 @@ function AppRoutes(props) {
     <Routes>
       {/* index matches on default/home URL: / */}
       <Route index element={<Homepage {...props} />} />
-
-      <Route path="/posts" element={<PostsPage {...props} />}>
-        <Route index element={<PostList />} />
-        {/* dynamic param taken from route, stored in variable called id */}
-        <Route path=":id" element={<Post />} />
-      </Route>
 
       {/* nested routes, matches on /dash/messages etc */}
       <Route path="dash" element={<DashboardPage {...props} />}>

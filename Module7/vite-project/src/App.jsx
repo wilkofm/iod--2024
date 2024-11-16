@@ -17,6 +17,13 @@ import MyThemeProvider from "../context/ThemeContext";
 import ThemeSwitcher from "../components/ThemeSwitcher";
 import { MoodChanger } from "../components/Emoji";
 import { EmojiProvider } from "../context/EmojiContext";
+import NavBar from "../components/NavBar";
+import AppRoutes from "../components/AppRoutes";
+import BasicGrid from "../components/BasicGrid";
+import CustomCard from "../components/CustomCard";
+import MUIForm from "../components/MUIForm";
+import MUIDialog from "../components/MUIDialogue";
+import SxExample from "../components/MUIStyling";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -25,20 +32,27 @@ function App() {
     <>
       <UserProvider>
         <MyThemeProvider>
-          <ThemeSwitcher />
-          <LoginForm />
-          {/* <SubscribeForm /> */}
-          {/* <PostListState /> */}
-          <EmojiProvider>
+          <CustomCard />
+          <NavBar />
+          <AppRoutes />
+          <BasicGrid />
+          <MUIForm />
+          <MUIDialog text="my first MUI dialogue" />
+          <SxExample />
+          {/* <ThemeSwitcher />
+          <LoginForm /> */}
+          {/* <SubscribeForm />{} */}
+          {/* <PostListState />{} */}
+          {/* <EmojiProvider>
             <MoodChanger />
             <PostListReducer />
             <ReducerCounter />
             <VideoPlayer />
             <RefCounter />
-            <ClockDisplay />
-            {/* <ActivityFinder /> */}
-            <BitcoinRates />
-          </EmojiProvider>
+            <ClockDisplay />{} */}
+          {/* <ActivityFinder />{} */}
+          {/* <BitcoinRates />
+          </EmojiProvider> */}
         </MyThemeProvider>
       </UserProvider>
     </>
