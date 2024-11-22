@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useUserContext } from "../context/UserContext";
 import { useContext } from "react";
 import { MyThemeContext } from "../context/ThemeContext";
+import { Button, TextField, Box } from "@mui/material";
 
 function LoginForm() {
   const { theme, darkMode } = useContext(MyThemeContext);
@@ -37,37 +38,36 @@ function LoginForm() {
     );
 
   return (
-    <div
-      className="LoginForm componentBox"
-      style={{ background: theme.background, color: theme.foreground }}
+    <Box
+      component="form"
+      onSubmit={handleSubmit}
+      style={{
+        background: theme.background,
+        color: theme.foreground,
+        padding: "1rem",
+      }}
     >
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>
-            Email:
-            <input
-              type="email"
-              value={userEmail}
-              onChange={(e) => setUserEmail(e.target.value)}
-              required
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Password:
-            <input
-              type="password"
-              value={userPassword}
-              onChange={(e) => setUserPassword(e.target.value)}
-              required
-            />
-          </label>
-        </div>
-        <button type="submit">Login</button>
-      </form>
+      <TextField
+        label="Email"
+        type="email"
+        value={userEmail}
+        onChange={(e) => setUserEmail(e.target.value)}
+        fullWidth
+        required
+      />
+      <TextField
+        label="Password"
+        type="password"
+        value={userPassword}
+        onChange={(e) => setUserPassword(e.target.value)}
+        fullWidth
+        required
+      />
+      <button type="submit" fullWidth>
+        Login
+      </button>
       {submitResult && <p>{submitResult}</p>}
-    </div>
+    </Box>
   );
 }
 

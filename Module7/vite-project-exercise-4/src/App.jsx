@@ -5,15 +5,26 @@ import "./App.css";
 import LoginPage from "../pages/LoginPage";
 import Homepage from "../pages/HomePage";
 import BitcoinRatesPage from "../pages/BitcoinRatesPage";
+import { UserProvider } from "../context/UserContext";
+import MyThemeProvider from "../context/ThemeContext";
+import AppRoutes from "../routes/AppRoutes";
+import NavBar from "../components/NavBar";
+import { ThemeProvider } from "@mui/material";
+import { tealTheme } from "../themes/tealTheme";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <Homepage />
-      <LoginPage />
-      <BitcoinRatesPage />
+      <UserProvider>
+        <MyThemeProvider>
+          <ThemeProvider theme={tealTheme}>
+            <NavBar />
+          </ThemeProvider>
+          <AppRoutes />
+        </MyThemeProvider>
+      </UserProvider>
     </>
   );
 }
