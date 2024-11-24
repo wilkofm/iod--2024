@@ -7,13 +7,13 @@
         <mxCell id="646gZCzMXCmpMYS0U0V--1" value="User" style="rounded=0;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
           <mxGeometry x="80" y="80" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="646gZCzMXCmpMYS0U0V--2" value="ID&lt;div&gt;Name&lt;/div&gt;&lt;div&gt;Gender&lt;/div&gt;&lt;div&gt;Age&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+        <mxCell id="646gZCzMXCmpMYS0U0V--2" value="&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;ID&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;Name&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;Gender&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;Age&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
           <mxGeometry x="80" y="120" width="120" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="646gZCzMXCmpMYS0U0V--3" value="Post" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="646gZCzMXCmpMYS0U0V--3" value="&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Post&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
           <mxGeometry x="160" y="320" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="646gZCzMXCmpMYS0U0V--4" value="Title&lt;div&gt;Desciption&lt;/div&gt;&lt;div&gt;Image&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+        <mxCell id="646gZCzMXCmpMYS0U0V--4" value="&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Title&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;Desciption&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;Image&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=center;" vertex="1" parent="1">
           <mxGeometry x="160" y="360" width="120" height="120" as="geometry" />
         </mxCell>
         <mxCell id="646gZCzMXCmpMYS0U0V--6" value="" style="endArrow=none;html=1;rounded=0;exitX=0.092;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="646gZCzMXCmpMYS0U0V--3">
