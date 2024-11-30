@@ -1,28 +1,34 @@
 const { DataTypes, Model } = require("sequelize");
 let dbConnect = require("../dbConnect");
 const sequelizeInstance = dbConnect.Sequelize;
-class User extends Model {}
+class Comment extends Model {}
 
-User.init(
+Comment.init(
   {
-    userId: {
+    commentId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
     },
-    userName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      required: true,
-    },
-    gender: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      required: true,
-    },
-    age: {
+    postId: {
       type: DataTypes.INTEGER,
+      allowNull: false,
+      required: true,
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      required: true,
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      required: true,
+      unique: true,
+    },
+    time: {
+      type: DataTypes.DATE,
       allowNull: false,
       required: true,
       unique: true,
@@ -30,8 +36,8 @@ User.init(
   },
   {
     sequelize: sequelizeInstance,
-    modelName: "users", // uselowercase plural format timestamps: true, freezeTableName: true,
+    modelName: "comments", // uselowercase plural format timestamps: true, freezeTableName: true,
   }
 );
 
-module.exports = User;
+module.exports = Comment;
